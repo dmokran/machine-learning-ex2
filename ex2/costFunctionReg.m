@@ -9,7 +9,8 @@ m = length(y); % number of training examples
 
 % You need to return the following variables correctly 
 J = 0;
-grad = zeros(size(theta), 1);
+n = size(theta);
+grad = zeros(n, 1);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
@@ -17,9 +18,13 @@ grad = zeros(size(theta), 1);
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
 
-
-
-
+g = sigmoid(X*theta);
+oneDivM = 1 / m;
+lDiv2m = lambda / (2 * m);
+lDivM = lambda / m;
+J = oneDivM * ((-y' * log(g)) - (1-y)' * (log(1-g))) + (lDiv2m * (sum(theta(2:n,:).^2)));
+grad = oneDiv(M * (g-y)' * X + lDivM * theta;
+%grad(0) = grad(0) - lDivM * theta(0);
 
 
 % =============================================================
