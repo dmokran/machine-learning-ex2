@@ -23,8 +23,8 @@ oneDivM = 1 / m;
 lDiv2m = lambda / (2 * m);
 lDivM = lambda / m;
 J = oneDivM * ((-y' * log(g)) - (1-y)' * (log(1-g))) + (lDiv2m * (sum(theta(2:n,:).^2)));
-grad = oneDiv(M * (g-y)' * X + lDivM * theta;
-%grad(0) = grad(0) - lDivM * theta(0);
+grad = oneDivM * (X' * (g-y)) + lDivM * theta;
+grad(1) = grad(1) - lDivM * theta(1);
 
 
 % =============================================================
